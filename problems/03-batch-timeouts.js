@@ -33,18 +33,12 @@ console.log(timeoutObjs); // [ Timeout {...},  Timeout {...}, Timeout {...} ]
 ***********************************************************************/
 
 function batchTimeouts(callbacks, delays) {
-//create an empty object
-let final = {};
-//create an empty array
-let newarray = [];
-//iterate through both arrays, pushing each element into the new array as corresponding pairs
-return setTimeout(callbacks, delays); {
-  for (let i=0;i<callbacks.length;i++) {
-    const final = callbacks.concat(delays);
+  let array = [];
+  for (let i = 0; i < callbacks.length; i++) {
+    array.push(setTimeout(callbacks[i], delays[i]))
   }
-}
-//place new array into empty object
-//return object
+  console.log(array)
+  return array;
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
